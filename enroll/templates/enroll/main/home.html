@@ -1,0 +1,67 @@
+{% extends 'enroll/base.html' %}
+{% load static %}
+{% block title %} Django Ajax Crud {% endblock %}
+
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center alert alert-danger">Django Function Based view
+        Ajax Bootstrap CRUD
+    </h2>
+
+  <div class="row">
+      <div class="col-sm-4">
+        <h4 class="text-center alert alert-info">Add Update Students</h4>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="user_id" id="user_id" />
+            {{form.as_p}}
+            <input type="button" class="btn btn-success" id="btnsave" value="Save">
+        </form>
+        <div class="alert alert-danger" id="msg" style="display: none;"></div>
+    </div>
+    <div class="col-sm-7">
+        <h4 class="text-center alert alert-info">Show Students information</h4>
+        <table class="table table-hover">
+            <thead>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Action</th>
+            </thead>
+            <tbody id="tbody">
+                {% for user in users %}
+                  <tr>
+                      <td>
+                        {{user.id}}
+                      </td>
+                      <td>
+                        {{user.name}}
+                      </td>
+                      <td>
+                        {{user.email}}
+                      </td>
+                      <td>
+                    {{user.password}}
+                  </td>
+                  <td>
+                    <!-- sid is special attribute to send data -->
+                    <input type="button" data-sid="{{user.id}}" value="Edit"
+                      class="btn btn-warning btn-sm btn-edit">
+                      <input type="button" data-sid="{{user.id}}" value="Delete"
+                      class="btn btn-danger btn-sm btn-del">
+                  </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>        
+    </div>
+  </div>
+</div>    
+{% endblock %}
+
+{% block scripts %}
+  {% include 'enroll/includes/ajax.html' %}
+{% endblock %}
