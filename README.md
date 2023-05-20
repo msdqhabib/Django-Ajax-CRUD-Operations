@@ -1,3 +1,5 @@
+[![Thumbnail](https://github.com/msdqhabib/Django-Ajax-CRUD-Operations/raw/main/ss.png)](https://github.com/msdqhabib/Django-Ajax-CRUD-Operations/raw/main/ss.png)
+
 # Django CRUD with Ajax and jQuery
 This project is a simple Django web application that demonstrates CRUD (Create, Read, Update, Delete) operations using Django, Ajax, and jQuery. It provides a user-friendly interface for managing data by leveraging the power of asynchronous requests and dynamic updates.
 <!-- Add table of contents -->
